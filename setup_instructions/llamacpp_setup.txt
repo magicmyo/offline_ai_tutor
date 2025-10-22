@@ -1,0 +1,30 @@
+# update and upgrade
+sudo apt update && sudo apt upgrade -y
+
+# install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+
+brew install hello
+
+
+# install llama.cpp
+brew install llama.cpp
+
+llama-cli --help
+
+lama-cli -m /home/models/qwen2.5-3b-instruct-q4_k_m.gguf -p "Hello" -n 64
+
+# test with llama-server
+llama-server -m /home/models/qwen2.5-3b-instruct-q4_k_m.gguf --host 127.0.0.1 --port 8081
+
+curl http://127.0.0.1:8081/v1/models
+
+curl http://127.0.0.1:8081s/v1/chat/completions -H "Content-Type: application/json" -d '{"model":"qwen2.5.guff","messages":[{"role":"user","content":"Hi"}]}'
+
+http://127.0.0.1:8081/
+
+

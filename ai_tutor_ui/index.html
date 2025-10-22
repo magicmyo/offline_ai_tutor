@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width,initial-scale=1" name="viewport"/>
+        <title>🤖 AI Tutor</title>
+
+        <script defer src="js/script.js?v=2"></script>
+        <link rel="stylesheet" href="css/styles.css?v=2">
+    </head>
+
+    <body>
+
+        <div class="app">
+            <div class="title">AI Tutor — Offline & Light</div>
+            <div class="tabs" id="tabs"></div>
+
+            <div class="hint">Use <b>Agent Mode</b> tab for tool calls (e.g., search my notes for photosynthesis , (2+3)*4 ).
+                Other
+                tabs act as normal chat.
+            </div>
+            <div class="chat">
+                <div class="msgs" id="msgs"></div>
+                <div class="row">
+                    <input id="inp" placeholder="Type your question…"/>
+                    <button class="btn" id="send">Send</button>
+                </div>
+            </div>
+
+            <div class="muted" style="margin-top:8px">
+                Tip: Connect to Pi Access Point hotspot first to use offline AI Tutor.
+            </div>
+        </div>
+    </body>
+</html>

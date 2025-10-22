@@ -1,0 +1,19 @@
+Chapter 3: Fractions
+
+Fractions are a way of representing parts of a whole. A fraction has two numbers: 
+the numerator (top) and the denominator (bottom).
+
+Examples:
+1/2 means one part out of two equal parts.
+3/4 means three parts out of four equal parts.
+
+Key Points:
+- Equivalent fractions: 1/2 = 2/4 = 4/8
+- Simplifying fractions: 6/8 = 3/4
+- Adding fractions: 1/4 + 2/4 = 3/4
+- Mixed numbers: 1 1/2 = 3/2
+
+Practice Questions:
+1. Simplify 8/12
+2. Add 2/3 + 1/6
+3. Convert 7/4 into a mixed number

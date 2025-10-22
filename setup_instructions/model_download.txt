@@ -1,0 +1,19 @@
+
+# install huggingface
+pip install huggingface_hub
+
+# download models
+
+hf download Qwen/Qwen2.5-3B-Instruct-GGUF qwen2.5-3b-instruct-q4_k_m.gguf --local-dir ./models/qwen
+
+cd ../deepseek
+
+hf download tensorblock/deepseek-coder-1.3b-instruct-GGUF deepseek-coder-1.3b-instruct-Q4_K_M.gguf --local-dir ./models/deepseek
+
+# download and install create_ap 
+sudo apt install git util-linux procps hostapd iproute2 iw dnsmasq
+git clone https://github.com/oblique/create_ap
+cd create_ap
+sudo make install
+sudo apt install qrencode -y
+
