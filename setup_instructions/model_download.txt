@@ -6,9 +6,31 @@ pip install huggingface_hub
 
 hf download Qwen/Qwen2.5-3B-Instruct-GGUF qwen2.5-3b-instruct-q4_k_m.gguf --local-dir ./models/qwen
 
-cd ../deepseek
+# 1. TinyLlama-1.1B (baseline) 
+hf download TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf --local-dir ./models/tinyllama 
 
-hf download tensorblock/deepseek-coder-1.3b-instruct-GGUF deepseek-coder-1.3b-instruct-Q4_K_M.gguf --local-dir ./models/deepseek
+# 2. Qwen2.5-3B 
+hf download Qwen/Qwen2.5-3B-Instruct-GGUF qwen2.5-3b-instruct-q5_k_m.gguf --local-dir ./models/qwen2.5-3b 
+
+# 3. Mistral-7B (stretch benchmark) 
+hf download TheBloke/Mistral-7B-Instruct-v0.2-GGUF mistral-7b-instruct-v0.2.Q4_K_M.gguf  --local-dir ./models/mistral
+
+# 4. LLaMA-3 8B (upper-bound stretch, very slow on Pi)
+hf download bartowski/Meta-Llama-3-8B-Instruct-GGUF Meta-Llama-3-8B-Instruct-Q4_K_M.gguf --local-dir ./models/meta
+
+
+# 1. TinyLlama-1.1B (baseline) test
+llama-server -m /home/magicmyo/ai_tutor/models/tinyllama/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf --host 0.0.0.0 -c 2048 -t 4 --parallel 2 --port 8081
+
+# 2. Qwen2.5-3B test
+llama-server -m /home/magicmyo/ai_tutor/models/qwen/qwen2.5-3b-instruct-q4_k_m.gguf --host 0.0.0.0 -c 2048 -t 4 --parallel 2 --port 8081
+
+# 3. Mistral-7B (stretch benchmark) test
+llama-server -m /home/magicmyo/ai_tutor/models/mistral/mistral-7b-instruct-v0.2.Q4_K_M.gguf --host 0.0.0.0 -c 2048 -t 4 --parallel 2 --port 8081
+
+# 4. LLaMA-3 8B (upper-bound stretch, very slow on Pi) test
+llama-server -m /home/magicmyo/ai_tutor/models/meta/Meta-Llama-3-8B-Instruct-Q4_K_M.gguf --host 0.0.0.0 -c 2048 -t 4 --parallel 2 --port 8081
+
 
 # download and install create_ap 
 sudo apt install git util-linux procps hostapd iproute2 iw dnsmasq
